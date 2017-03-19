@@ -1,0 +1,20 @@
+<h1>Here are all your products:</h1>
+
+<a href="/shirts/new">New Shirt</a>
+
+<%= @shirts.each do |shirt| %>
+  <h4>Brand:</h4>
+  <h6><a href="/shirts/<%= shirt.id %>"><%= shirt.brand %></a></h6>
+  <h4>Price:</h4>
+  <h6><%= shirt.price %></h6>
+  <h4>Image:</h4>
+  <h6><%= shirt.image %></h6>
+  <h4>Description:</h4>
+  <h6><%= shirt.description %></h6>
+  <a href="/shirts/<%= shirt.id %>/edit">Update Shirt</a>
+  <p></p>
+  <%= form_tag "/shirts/#{shirt.id}", method: :delete do %>
+  <input type="submit" value="Delete Shirt">
+  <% end %>
+  <p></p>
+<% end %>
